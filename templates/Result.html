@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+	
+<head>
+	<title>Image Class</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../static/jquery.mobile-1.4.5.min.css" />
+<script src="../static/jquery.js"></script>
+<script src="../static/jquery.mobile-1.4.5.min.js"></script>
+
+<!-- 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+
+
+<script type = "text/javascript">
+var loadFile = function(event) {
+	var image = document.getElementById('output_1');
+	image.src = URL.createObjectURL(event.target.files[0]);
+	const ppp=image.src
+	localStorage.setItem("storageName",ppp);
+};
+</script>
+
+<style>
+
+
+#results{
+	
+	font-size: 20;
+	
+	}
+p{
+	color: black;
+	font-family: Times New Roman;
+	font-size: 90;
+	
+	}
+h6{
+	color: green;
+	font-family: Times New Roman;
+	font-size: 150%;
+	
+	}
+
+</style>
+
+
+</head>	
+
+
+<body>
+<div data-role="page" id = "menu">
+<div data-role="header" data-theme ="b"><center><h3> Image Class:  </h3></center> </div>
+<center>
+<div>
+<form>
+<center><h6 id > Image Class:  {{class_name}} </h6></center>
+<center><p> Supported by: Pytorch, Flask & Jquery Mobile </p></center>
+
+</form>
+</div>
+</center>
+</div>
+
+
+
+
+
+</body>
+
+
+</html>

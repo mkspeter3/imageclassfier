@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+	
+<head>
+	<title>Image Classification</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../static/jquery.mobile-1.4.5.min.css" />
+<script src="../static/jquery.js"></script>
+<script src="../static/jquery.mobile-1.4.5.min.js"></script>
+
+<!-- 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+
+
+<script type = "text/javascript">
+
+	var loadFile = function(event) {
+		var image = document.getElementById('output');
+		image.src = URL.createObjectURL(event.target.files[0]);
+	};
+</script>
+
+
+<script type = "text/javascript">
+
+	function preview_image(event){
+		var reader = new FileReader();
+		reader.onload= function(){
+			var image = document.getElementById('output');
+			image.src = reader.result;
+			
+			}
+		reader.readAsDataURL(event.target.files[0]);
+		}
+</script>
+
+</head>	
+
+
+<body>
+
+<div data-role="page" id = "menu">
+<div data-role="header" data-theme ="b"><center><h3>Image Classifier </h3></center> </div>
+
+
+<center><div style = "height: 100%; width: 50%;"> 
+
+<h4>Upload Image </h4>
+
+<form method = "POST" enctype="multipart/form-data" data-ajax="false" action ="">
+
+	<input type="file"  accept="image/*" name="file" id="file" onchange="preview_image(event)"  >
+	<p><center><button type = "submit"   >Upload</button></center></p>
+	</div></center>
+
+
+<center><div>  <img id="output" width="200" />	</div></center>
+
+</form>
+
+
+</div>
+
+
+
+
+</body>
+
+
+</html>
