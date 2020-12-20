@@ -12,9 +12,9 @@ import string
 app = Flask(__name__)
 
 
-# model = models.densenet121(pretrained=True)
+model = models.densenet121(pretrained=True)
 
-# model.eval()
+model.eval()
 
 def transform_image(image_bytes):
     my_transforms = transforms.Compose([transforms.Resize(255),
@@ -64,13 +64,13 @@ def upload_files():
             
 
             img_bytes = uploaded_file.read()
-            # transformed_image = transform_image(image_bytes=img_bytes)
-            # outputs = model.forward(transformed_image)
-            # _, category = outputs.max(1)
-            # predicted_idx = str(category.item())
-            # namee = imagenet_class_mapping[predicted_idx]
-            # class_name =  str(namee[1])
-            # return render_template("Result.html", class_name=class_name )
+            transformed_image = transform_image(image_bytes=img_bytes)
+            outputs = model.forward(transformed_image)
+            _, category = outputs.max(1)
+            predicted_idx = str(category.item())
+            namee = imagenet_class_mapping[predicted_idx]
+            class_name =  str(namee[1])
+            return render_template("Result.html", class_name=class_name )
 
     else: #incase of GET method
         return redirect(request.url)
