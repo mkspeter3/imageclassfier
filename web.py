@@ -3,7 +3,7 @@ import os
 import json
 import io
 import glob
-# from PIL import Image
+from PIL import Image
 # from torchvision import models
 # import torchvision.transforms as transforms
 import string
@@ -60,10 +60,10 @@ def upload_files():
         
         if uploaded_file: #there's an uploaded file
             filename = uploaded_file.filename
-            # file_name_ht= os.path.dirname(filename)
+            file_name_ht= os.path.dirname(filename)
             
 
-            # img_bytes = uploaded_file.read()
+            img_bytes = uploaded_file.read()
             # transformed_image = transform_image(image_bytes=img_bytes)
             # outputs = model.forward(transformed_image)
             # _, category = outputs.max(1)
