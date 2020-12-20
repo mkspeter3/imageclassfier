@@ -4,8 +4,8 @@ import json
 import io
 import glob
 from PIL import Image
-# from torchvision import models
-# import torchvision.transforms as transforms
+from torchvision import models
+import torchvision.transforms as transforms
 import string
 
 
